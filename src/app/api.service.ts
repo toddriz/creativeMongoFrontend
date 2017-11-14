@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as Rx from 'rxjs';
+
 
 @Injectable()
 export class ApiService {
@@ -13,9 +15,7 @@ export class ApiService {
     }
 
     public getComments() {
-        this.http.get('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3006/comment').subscribe((response) => {
-            return response;
-        });
+        return this.http.get('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3006/comment');
     }
 
 }

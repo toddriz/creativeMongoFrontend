@@ -14,6 +14,9 @@ export class AppComponent {
     constructor(private apiService: ApiService) {}
 
     getApiData() {
-        this.apiData = this.apiService.getComments();
+        this.apiService.getComments().subscribe((data) => {
+            this.apiData = data;
+            console.log(this.apiData);
+        });
     }
 }
