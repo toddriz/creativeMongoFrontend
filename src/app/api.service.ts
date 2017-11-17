@@ -1,27 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as Rx from 'rxjs';
-
 
 @Injectable()
 export class ApiService {
 
     constructor(private http: HttpClient){ }
 
-    public getApiData() {
-        this.http.get('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3008/apiData').subscribe((response) => {
-            return response;
-        });
+    public getPictures(){
+        return this.http.get('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3011/pictures');
     }
 
-    public addApiData(pic) {
-        // this.http.post('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3008/apiData/' + pic).subscribe((response) => {
-        //     return response;
-        // });
+    public submitPicture(url: string){
+        const requestBody = { url };
+        console.log('submit picture ', requestBody);
+        return this.http.post('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3011/pictures', requestBody);
     }
-
-    public getComments() {
-        return this.http.get('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3006/comment');
-    }
-
 }

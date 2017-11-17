@@ -9,10 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
-import { TitlecasePipe } from './titlecase.pipe';
 
 @NgModule({
-    declarations: [AppComponent, TitlecasePipe],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

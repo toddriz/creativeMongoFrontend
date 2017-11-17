@@ -8,32 +8,27 @@ import { ApiService } from './api.service';
 })
 export class AppComponent implements OnInit {
     title = 'Mongo Mongo Mongo';
+    imgUrl: string;
+    pictures = [];
 
-    apiData = null;
-    imgUrl = '';
-
-    constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService) { }
 
     ngOnInit() {
         this.loadApiData();
     }
 
     loadApiData() {
-        this.apiData = [];
-        this.apiService.getComments().subscribe((data) => {
-            this.apiData = data;
-            console.log(this.apiData);
+        this.apiService.getPictures().subscribe((response: Response) => {
+            console.log(response);
+            this.pictures = [response.body];
         });
     }
 
     addApiData() {
         console.log('Adding ', this.imgUrl);
-        this.apiData.push(this.imgUrl);
-        this.imgUrl = '';
+        this.pictures.push(this.imgUrl);
 
-        // this.apiService.addApiData(this.imgUrl).subscribe((data) => {
-        //     this.apiData.push(this.imgUrl);
-        // })
+        this.apiService.submitPicture(this.imgUrl).subscribe();
     }
 
 
