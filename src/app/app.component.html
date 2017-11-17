@@ -1,34 +1,14 @@
-<mat-card class="app-header-card">Mongo Mongo Mongo</mat-card>
+<mat-card class="app-header-card">Mongo Pic Share</mat-card>
 <div id="daBody">
     <div id="space"></div>
     <div class="fc">
         <mat-card class="app-content-card">
-            <button (click)="getApiData()">SUBMIT</button>
+            <input [(ngModel)]="imgUrl"/>
+            <button (click)="addApiData()">SUBMIT</button>
         </mat-card>
-        <mat-card *ngIf="apiData" class="app-content-card">
-           {{apiData}}
-        </mat-card>
+    </div>
+
+    <div class="images-container">
+        <div class="image" *ngFor="let img of apiData" [ngStyle]="{'background-image': 'url(' + img + ')'}"></div>
     </div>
 </div>
-<!-- <mat-card class="app-header-card">We Will Rock You</mat-card>
-<div id="daBody">
-    <div id="space"></div>
-    <div class="fc">
-        <mat-card class="app-content-card">
-            <div class="f">
-                <div class="line">
-                    <div class="text">Your Name:</div>
-                </div>
-            </div>
-            <app-user-info [firstName]="firstName" [lastName]="lastName" (rockz)="isTriggered($event)"></app-user-info>
-        </mat-card>
-        <mat-card *ngIf="firstMineral" class="app-content-card">
-            <div class="f">
-                <div class="line">
-                    <div class="text">If you were a rock, you would be:</div>
-                </div>
-            </div>
-            <app-rock-info [firstMineral]="firstMineral" [lastMineral]="lastMineral"></app-rock-info>
-        </mat-card>
-    </div>
-</div> -->

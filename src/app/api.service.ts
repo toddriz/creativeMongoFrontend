@@ -14,6 +14,12 @@ export class ApiService {
         });
     }
 
+    public addApiData(pic) {
+        // this.http.post('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3008/apiData/' + pic).subscribe((response) => {
+        //     return response;
+        // });
+    }
+
     public getComments() {
         return this.http.get('http://ec2-54-193-37-21.us-west-1.compute.amazonaws.com:3006/comment');
     }
